@@ -1,0 +1,377 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   LIGHT MODE DESIGN TOKENS
+   ========================================================================== */
+:root {
+  --color-primary: #3D5AFE;
+  --color-primary-dark: #2A3EB1;
+  --color-accent: #F97316;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-bg: #F7F8FC;
+  --color-surface: #FFFFFF;
+  --color-border: #CBD5E1;
+  --color-text-primary: #1A1D29;
+  --color-text-secondary: #6B7080;
+}
+
+/* ==========================================================================
+   DARK MODE DESIGN TOKENS (Class or Data-Theme triggered)
+   ========================================================================== */
+:root[data-theme="dark"],
+html.dark,
+.dark {
+  --color-primary: #6366F1;
+  --color-primary-dark: #4F46E5;
+  --color-accent: #FB923C;
+  --color-success: #4ADE80;
+  --color-warning: #FBBF24;
+  --color-error: #F87171;
+  --color-bg: #0B0F19;         /* Deep modern dark space background */
+  --color-surface: #151D2F;    /* Elevated surface for cards, modals & panels */
+  --color-border: #232E48;     /* Subtle elegant border */
+  --color-text-primary: #F8FAFC;/* High contrast crisp white-slate text */
+  --color-text-secondary: #94A3B8;/* High contrast readable muted slate text */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-primary: #6366F1;
+    --color-primary-dark: #4F46E5;
+    --color-accent: #FB923C;
+    --color-success: #4ADE80;
+    --color-warning: #FBBF24;
+    --color-error: #F87171;
+    --color-bg: #0B0F19;
+    --color-surface: #151D2F;
+    --color-border: #232E48;
+    --color-text-primary: #F8FAFC;
+    --color-text-secondary: #94A3B8;
+  }
+}
+
+/* ==========================================================================
+   GLOBAL DARK MODE THEME ADAPTATIONS
+   ========================================================================== */
+
+/* Surfaces */
+.dark body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+.dark .bg-white {
+  background-color: var(--color-surface) !important;
+}
+
+.dark .bg-slate-50,
+.dark .bg-slate-50\/40,
+.dark .bg-slate-50\/50,
+.dark .bg-slate-50\/60,
+.dark .bg-slate-50\/70 {
+  background-color: #0E1526 !important;
+}
+
+.dark .bg-slate-100 {
+  background-color: #1A243B !important;
+}
+
+.dark .bg-slate-200 {
+  background-color: #232E48 !important;
+}
+
+.dark .bg-\[\#f0f2f5\] {
+  background-color: #0B0F19 !important;
+}
+
+/* Text Hierarchy & Contrast */
+.dark .text-slate-900,
+.dark .text-slate-800,
+.dark .text-slate-700,
+.dark .text-gray-900,
+.dark .text-gray-800,
+.dark .text-gray-700 {
+  color: #F8FAFC !important;
+}
+
+.dark .text-slate-600,
+.dark .text-slate-500,
+.dark .text-gray-600,
+.dark .text-gray-500 {
+  color: #94A3B8 !important;
+}
+
+.dark .text-slate-400,
+.dark .text-gray-400 {
+  color: #64748B !important;
+}
+
+/* Borders & Dividers */
+.dark .border-slate-100,
+.dark .border-slate-200,
+.dark .border-slate-300,
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-\[var\(--color-border\)\] {
+  border-color: #232E48 !important;
+}
+
+.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
+.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #232E48 !important;
+}
+
+/* Form Controls (Inputs, Textareas, Selects) */
+.dark input:not([type="checkbox"]):not([type="radio"]),
+.dark textarea,
+.dark select {
+  background-color: #0E1526 !important;
+  color: #F8FAFC !important;
+  border-color: #232E48 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #64748B !important;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: var(--color-primary) !important;
+  outline: none;
+}
+
+/* Hover States */
+.dark .hover\:bg-slate-50:hover,
+.dark .hover\:bg-slate-100:hover,
+.dark .hover\:bg-slate-200:hover {
+  background-color: #1A243B !important;
+}
+
+/* Colored Status Badges & Skill Chips in Dark Mode */
+.dark .bg-blue-50 {
+  background-color: rgba(99, 102, 241, 0.16) !important;
+  color: #A5B4FC !important;
+}
+
+.dark .bg-blue-100 {
+  background-color: rgba(99, 102, 241, 0.28) !important;
+  color: #C7D2FE !important;
+}
+
+.dark .bg-orange-50 {
+  background-color: rgba(249, 115, 22, 0.16) !important;
+  color: #FDBA74 !important;
+}
+
+.dark .bg-orange-100 {
+  background-color: rgba(249, 115, 22, 0.28) !important;
+  color: #FED7AA !important;
+}
+
+.dark .bg-green-50 {
+  background-color: rgba(34, 197, 94, 0.16) !important;
+  color: #86EFAC !important;
+}
+
+.dark .bg-green-100 {
+  background-color: rgba(34, 197, 94, 0.28) !important;
+  color: #BBF7D0 !important;
+}
+
+.dark .bg-amber-50,
+.dark .bg-amber-100\/70,
+.dark .bg-amber-200\/60 {
+  background-color: rgba(245, 158, 11, 0.16) !important;
+  color: #FDE047 !important;
+}
+
+.dark .bg-amber-100 {
+  background-color: rgba(245, 158, 11, 0.28) !important;
+  color: #FEF08A !important;
+}
+
+.dark .text-amber-700,
+.dark .text-amber-800,
+.dark .text-amber-900 {
+  color: #FDE047 !important;
+}
+
+.dark .bg-red-50 {
+  background-color: rgba(239, 68, 68, 0.16) !important;
+  color: #FCA5A5 !important;
+}
+
+.dark .bg-red-100 {
+  background-color: rgba(239, 68, 68, 0.28) !important;
+  color: #FECACA !important;
+}
+
+/* Chat & Messenger Specific Styles in Dark Mode */
+.dark .chat-incoming-bubble,
+.dark [class*="rounded-bl-sm"].bg-white {
+  background-color: #1A243B !important;
+  color: #F8FAFC !important;
+  border-color: #232E48 !important;
+}
+
+/* ==========================================================================
+   REACT BIG CALENDAR DARK MODE STYLES
+   ========================================================================== */
+.dark .rbc-calendar {
+  background-color: transparent;
+  color: #F8FAFC;
+}
+
+.dark .rbc-header {
+  background-color: #151D2F !important;
+  color: #F8FAFC !important;
+  border-bottom: 1px solid #232E48 !important;
+  padding: 8px 4px !important;
+  font-weight: 700 !important;
+}
+
+.dark .rbc-header + .rbc-header {
+  border-left: 1px solid #232E48 !important;
+}
+
+.dark .rbc-month-view,
+.dark .rbc-time-view,
+.dark .rbc-agenda-view {
+  border: 1px solid #232E48 !important;
+  background-color: #0B0F19 !important;
+}
+
+.dark .rbc-month-row + .rbc-month-row {
+  border-top: 1px solid #232E48 !important;
+}
+
+.dark .rbc-day-bg + .rbc-day-bg {
+  border-left: 1px solid #232E48 !important;
+}
+
+.dark .rbc-off-range-bg {
+  background-color: #080C14 !important;
+}
+
+.dark .rbc-today {
+  background-color: rgba(99, 102, 241, 0.12) !important;
+}
+
+.dark .rbc-time-header {
+  border-bottom: 1px solid #232E48 !important;
+}
+
+.dark .rbc-time-header-content {
+  border-left: 1px solid #232E48 !important;
+}
+
+.dark .rbc-time-content {
+  border-top: 1px solid #232E48 !important;
+}
+
+.dark .rbc-timeslot-group {
+  border-bottom: 1px solid #1A243B !important;
+}
+
+.dark .rbc-day-slot .rbc-time-slot {
+  border-top: 1px solid #141B2D !important;
+}
+
+.dark .rbc-time-gutter .rbc-timeslot-group {
+  color: #94A3B8 !important;
+  border-color: #232E48 !important;
+  background-color: #101726 !important;
+}
+
+.dark .rbc-current-time-indicator {
+  background-color: #6366F1 !important;
+}
+
+.dark .rbc-toolbar {
+  margin-bottom: 16px;
+}
+
+.dark .rbc-toolbar-label {
+  color: #F8FAFC !important;
+  font-weight: 700 !important;
+  font-family: 'Sora', sans-serif !important;
+}
+
+.dark .rbc-toolbar button {
+  background-color: #151D2F !important;
+  color: #94A3B8 !important;
+  border: 1px solid #232E48 !important;
+  border-radius: 8px !important;
+  padding: 6px 12px !important;
+  font-weight: 600 !important;
+  transition: all 0.15s ease !important;
+}
+
+.dark .rbc-toolbar button:hover {
+  background-color: #1A243B !important;
+  color: #F8FAFC !important;
+  border-color: #3B4B6E !important;
+}
+
+.dark .rbc-toolbar button.rbc-active {
+  background-color: #6366F1 !important;
+  color: #FFFFFF !important;
+  border-color: #6366F1 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .rbc-agenda-view table.rbc-agenda-table {
+  border: 1px solid #232E48 !important;
+}
+
+.dark .rbc-agenda-view table.rbc-agenda-table thead > tr > th {
+  background-color: #151D2F !important;
+  color: #F8FAFC !important;
+  border-bottom: 1px solid #232E48 !important;
+}
+
+.dark .rbc-agenda-view table.rbc-agenda-table tbody > tr > td {
+  border-top: 1px solid #232E48 !important;
+  color: #F8FAFC !important;
+}
+
+/* ==========================================================================
+   BASE & TYPOGRAPHY
+   ========================================================================== */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}

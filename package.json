@@ -1,0 +1,20 @@
+{
+  "name": "skillbridge",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
+    "build": "pnpm -r build",
+    "db:studio": "pnpm --filter @skillbridge/api db:studio",
+    "db:seed": "pnpm --filter @skillbridge/api seed"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.0"
+  }
+}

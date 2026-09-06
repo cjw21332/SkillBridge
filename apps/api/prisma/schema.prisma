@@ -1,0 +1,247 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String
+  name          String
+  avatarUrl     String?
+  coverUrl      String?
+  bio           String?
+  location      String?
+  timezone      String?
+  isVerified    Boolean   @default(false)
+  role          Role      @default(USER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  lastSeenAt    DateTime?
+
+  teachSkills   UserSkill[] @relation("TeachSkills")
+  learnSkills   UserSkill[] @relation("LearnSkills")
+  availability  Availability[]
+  sentMatches   Match[]      @relation("RequestedBy")
+  receivedMatches Match[]    @relation("RequestedTo")
+  messages      Message[]
+  bookingsAsHost   Booking[] @relation("HostBookings")
+  bookingsAsGuest  Booking[] @relation("GuestBookings")
+  reviewsGiven  Review[]     @relation("ReviewAuthor")
+  reviewsReceived Review[]   @relation("ReviewTarget")
+  notifications Notification[]
+  refreshTokens RefreshToken[]
+  profileComments ProfileComment[] @relation("ProfileCommentsReceived")
+  authoredComments ProfileComment[] @relation("ProfileCommentsGiven")
+  profileLikes    ProfileLike[]    @relation("ProfileLikesReceived")
+  authoredLikes   ProfileLike[]    @relation("ProfileLikesGiven")
+  posts           Post[]           @relation("UserPosts")
+  postLikes       PostLike[]       @relation("UserPostLikes")
+  postComments    PostComment[]    @relation("UserPostComments")
+}
+
+model Post {
+  id             String        @id @default(uuid())
+  authorId       String
+  content        String
+  originalPostId String?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  author         User          @relation("UserPosts", fields: [authorId], references: [id], onDelete: Cascade)
+  originalPost   Post?         @relation("PostReposts", fields: [originalPostId], references: [id], onDelete: Cascade)
+  reposts        Post[]        @relation("PostReposts")
+  likes          PostLike[]
+  comments       PostComment[]
+}
+
+model PostLike {
+  id        String   @id @default(uuid())
+  postId    String
+  userId    String
+  createdAt DateTime @default(now())
+
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation("UserPostLikes", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, userId])
+}
+
+model PostComment {
+  id        String   @id @default(uuid())
+  postId    String
+  authorId  String
+  content   String
+  createdAt DateTime @default(now())
+
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author    User     @relation("UserPostComments", fields: [authorId], references: [id], onDelete: Cascade)
+}
+
+model ProfileComment {
+  id        String   @id @default(uuid())
+  profileId String
+  authorId  String
+  content   String
+  createdAt DateTime @default(now())
+
+  profile   User @relation("ProfileCommentsReceived", fields: [profileId], references: [id], onDelete: Cascade)
+  author    User @relation("ProfileCommentsGiven", fields: [authorId], references: [id], onDelete: Cascade)
+}
+
+model ProfileLike {
+  id        String   @id @default(uuid())
+  profileId String
+  authorId  String
+  createdAt DateTime @default(now())
+
+  profile   User @relation("ProfileLikesReceived", fields: [profileId], references: [id], onDelete: Cascade)
+  author    User @relation("ProfileLikesGiven", fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, authorId])
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Skill {
+  id       String @id @default(uuid())
+  name     String @unique
+  category String
+
+  userSkills UserSkill[]
+}
+
+model UserSkill {
+  id        String   @id @default(uuid())
+  userId    String
+  skillId   String
+  type      SkillType   // TEACH or LEARN
+  level     Int?        // 1-5 proficiency, only relevant for TEACH
+
+  user      User  @relation(fields: [userId], references: [id], name: "TeachSkills", map: "UserSkill_userId_teach_fkey")
+  learnUser User  @relation(fields: [userId], references: [id], name: "LearnSkills", map: "UserSkill_userId_learn_fkey")
+  skill     Skill @relation(fields: [skillId], references: [id])
+
+  @@unique([userId, skillId, type])
+}
+
+enum SkillType {
+  TEACH
+  LEARN
+}
+
+model Availability {
+  id        String   @id @default(uuid())
+  userId    String
+  dayOfWeek Int      // 0-6
+  startTime String   // "18:00"
+  endTime   String   // "20:00"
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Match {
+  id            String      @id @default(uuid())
+  requestedById String
+  requestedToId String
+  status        MatchStatus @default(PENDING)
+  matchScore    Float
+  createdAt     DateTime    @default(now())
+
+  requestedBy User @relation("RequestedBy", fields: [requestedById], references: [id])
+  requestedTo User @relation("RequestedTo", fields: [requestedToId], references: [id])
+  messages    Message[]
+  bookings    Booking[]
+
+  @@unique([requestedById, requestedToId])
+}
+
+enum MatchStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  BLOCKED
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  matchId   String
+  senderId  String
+  content   String
+  readAt    DateTime?
+  createdAt DateTime @default(now())
+
+  match  Match @relation(fields: [matchId], references: [id])
+  sender User  @relation(fields: [senderId], references: [id])
+}
+
+model Booking {
+  id           String        @id @default(uuid())
+  matchId      String
+  hostId       String
+  guestId      String
+  proposedById String?
+  skillId      String
+  scheduledAt  DateTime
+  durationMin  Int           @default(60)
+  status       BookingStatus @default(PROPOSED)
+  createdAt    DateTime      @default(now())
+
+  match Match @relation(fields: [matchId], references: [id])
+  host  User  @relation("HostBookings", fields: [hostId], references: [id])
+  guest User  @relation("GuestBookings", fields: [guestId], references: [id])
+  reviews Review[]
+}
+
+enum BookingStatus {
+  PROPOSED
+  CONFIRMED
+  DECLINED
+  COMPLETED
+  CANCELLED
+}
+
+model Review {
+  id         String   @id @default(uuid())
+  bookingId  String
+  authorId   String
+  targetId   String
+  rating     Int      // 1-5
+  comment    String?
+  createdAt  DateTime @default(now())
+
+  booking Booking @relation(fields: [bookingId], references: [id])
+  author  User    @relation("ReviewAuthor", fields: [authorId], references: [id])
+  target  User    @relation("ReviewTarget", fields: [targetId], references: [id])
+
+  @@unique([bookingId, authorId])
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  type      String   // "NEW_MATCH" | "NEW_MESSAGE" | "BOOKING_UPDATE" | "NEW_REVIEW"
+  payload   Json
+  readAt    DateTime?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  userId    String
+  tokenHash String
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}

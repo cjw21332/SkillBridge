@@ -1,0 +1,581 @@
+﻿{"level":"warn","time":1788705068810,"pid":25496,"hostname":"DESKTOP-PUN9BHO","err":"","msg":"Redis cache client connection deferred"}
+{"level":"warn","time":1788705068818,"pid":8448,"hostname":"DESKTOP-PUN9BHO","err":"","msg":"Redis cache client connection deferred"}
+{"level":"warn","time":1788705068821,"pid":29384,"hostname":"DESKTOP-PUN9BHO","err":"","msg":"Redis cache client connection deferred"}
+{"level":"warn","time":1788705068972,"pid":22712,"hostname":"DESKTOP-PUN9BHO","err":"","msg":"Redis cache client connection deferred"}
+node.exe : FAIL test/messages.test.ts (19.275 s)
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (FAIL test/messages.test.ts (19.275 s):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  ΓùÅ Console
+
+    console.error
+      AggregateError: 
+          at internalConnectMultiple (node:net:1339:18)
+          at afterConnectMultiple (node:net:1942:7) {
+        code: 'ECONNREFUSED',
+        [errors]: [
+          Error: connect ECONNREFUSED ::1:6379
+              at createConnectionError (node:net:1905:14)
+              at afterConnectMultiple (node:net:1935:16) {
+            errno: -4078,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '::1',
+            port: 6379
+          },
+          Error: connect ECONNREFUSED 127.0.0.1:6379
+              at createConnectionError (node:net:1905:14)
+              at afterConnectMultiple (node:net:1935:16) {
+            errno: -4078,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '127.0.0.1',
+            port: 6379
+          }
+        ]
+      }
+
+  ΓùÅ Messages Module Endpoints ΓÇ║ should persist message when participant sends message on ACCEPTED match
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/messages.test.ts:19:22)
+
+  ΓùÅ Messages Module Endpoints ΓÇ║ should reject message send on non-ACCEPTED (PENDING) match
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/messages.test.ts:19:22)
+
+  ΓùÅ Messages Module Endpoints ΓÇ║ should block non-participants from sending or reading messages (403)
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/messages.test.ts:19:22)
+
+  ΓùÅ Messages Module Endpoints ΓÇ║ should support correct pagination for message history
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/messages.test.ts:19:22)
+
+
+  ΓùÅ Test suite failed to run
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/messages.test.ts:67:22)
+
+FAIL test/reviews_notifications.test.ts (19.292 s)
+  ΓùÅ Console
+
+    console.error
+      AggregateError: 
+          at internalConnectMultiple (node:net:1339:18)
+          at afterConnectMultiple (node:net:1942:7) {
+        code: 'ECONNREFUSED',
+        [errors]: [
+          Error: connect ECONNREFUSED ::1:6379
+              at createConnectionError (node:net:1905:14)
+              at afterConnectMultiple (node:net:1935:16) {
+            errno: -4078,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '::1',
+            port: 6379
+          },
+          Error: connect ECONNREFUSED 127.0.0.1:6379
+              at createConnectionError (node:net:1905:14)
+              at afterConnectMultiple (node:net:1935:16) {
+            errno: -4078,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '127.0.0.1',
+            port: 6379
+          }
+        ]
+      }
+
+  ΓùÅ Reviews & Notifications Modules ΓÇ║ Reviews Module ΓÇ║ should reject review submission if booking is not 
+COMPLETED
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY 
+PC/Desktop/Projects/SkillBridge/apps/api/test/reviews_notifications.test.ts:21:22)
+
+  ΓùÅ Reviews & Notifications Modules ΓÇ║ Reviews Module ΓÇ║ should block non-participants from reviewing a booking 
+(403)
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY 
+PC/Desktop/Projects/SkillBridge/apps/api/test/reviews_notifications.test.ts:21:22)
+
+  ΓùÅ Reviews & Notifications Modules ΓÇ║ Reviews Module ΓÇ║ should successfully submit review for COMPLETED booking 
+and notify target user
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY 
+PC/Desktop/Projects/SkillBridge/apps/api/test/reviews_notifications.test.ts:21:22)
+
+  ΓùÅ Reviews & Notifications Modules ΓÇ║ Reviews Module ΓÇ║ should reject duplicate review for the same booking by 
+the same author
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY 
+PC/Desktop/Projects/SkillBridge/apps/api/test/reviews_notifications.test.ts:21:22)
+
+  ΓùÅ Reviews & Notifications Modules ΓÇ║ Reviews Module ΓÇ║ should accurately compute average rating on public user 
+reviews endpoint
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY 
+PC/Desktop/Projects/SkillBridge/apps/api/test/reviews_notifications.test.ts:21:22)
+
+  ΓùÅ Reviews & Notifications Modules ΓÇ║ Notifications Module ΓÇ║ should list paginated notifications and allow 
+marking as read
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY 
+PC/Desktop/Projects/SkillBridge/apps/api/test/reviews_notifications.test.ts:21:22)
+
+
+  ΓùÅ Test suite failed to run
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY 
+PC/Desktop/Projects/SkillBridge/apps/api/test/reviews_notifications.test.ts:85:22)
+
+FAIL test/auth.test.ts (19.336 s)
+  ΓùÅ Console
+
+    console.error
+      AggregateError: 
+          at internalConnectMultiple (node:net:1339:18)
+          at afterConnectMultiple (node:net:1942:7) {
+        code: 'ECONNREFUSED',
+        [errors]: [
+          Error: connect ECONNREFUSED ::1:6379
+              at createConnectionError (node:net:1905:14)
+              at afterConnectMultiple (node:net:1935:16) {
+            errno: -4078,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '::1',
+            port: 6379
+          },
+          Error: connect ECONNREFUSED 127.0.0.1:6379
+              at createConnectionError (node:net:1905:14)
+              at afterConnectMultiple (node:net:1935:16) {
+            errno: -4078,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '127.0.0.1',
+            port: 6379
+          }
+        ]
+      }
+
+  ΓùÅ Auth Module ΓÇ║ should register a new user successfully
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findUnique()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/auth.test.ts:9:18)
+
+  ΓùÅ Auth Module ΓÇ║ should reject login with wrong password
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findUnique()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/auth.test.ts:9:18)
+
+
+  ΓùÅ Test suite failed to run
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findUnique()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/auth.test.ts:18:18)
+
+FAIL test/bookings.test.ts (19.463 s)
+  ΓùÅ Console
+
+    console.error
+      AggregateError: 
+          at internalConnectMultiple (node:net:1339:18)
+          at afterConnectMultiple (node:net:1942:7) {
+        code: 'ECONNREFUSED',
+        [errors]: [
+          Error: connect ECONNREFUSED ::1:6379
+              at createConnectionError (node:net:1905:14)
+              at afterConnectMultiple (node:net:1935:16) {
+            errno: -4078,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '::1',
+            port: 6379
+          },
+          Error: connect ECONNREFUSED 127.0.0.1:6379
+              at createConnectionError (node:net:1905:14)
+              at afterConnectMultiple (node:net:1935:16) {
+            errno: -4078,
+            code: 'ECONNREFUSED',
+            syscall: 'connect',
+            address: '127.0.0.1',
+            port: 6379
+          }
+        ]
+      }
+
+  ΓùÅ Bookings Module Endpoints & Auto-Complete Job ΓÇ║ should create a valid PROPOSED booking for a skill taught by 
+host
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/bookings.test.ts:22:22)
+
+  ΓùÅ Bookings Module Endpoints & Auto-Complete Job ΓÇ║ should reject booking for a skill not taught by either 
+participant
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/bookings.test.ts:22:22)
+
+  ΓùÅ Bookings Module Endpoints & Auto-Complete Job ΓÇ║ should reject bookings on non-ACCEPTED (PENDING) matches
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/bookings.test.ts:22:22)
+
+  ΓùÅ Bookings Module Endpoints & Auto-Complete Job ΓÇ║ should enforce confirm/decline/cancel authorization and 1-hour 
+cancellation cutoff
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/bookings.test.ts:22:22)
+
+  ΓùÅ Bookings Module Endpoints & Auto-Complete Job ΓÇ║ should flip CONFIRMED bookings past end time to COMPLETED 
+status, but ignore PROPOSED or DECLINED
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/bookings.test.ts:22:22)
+
+
+  ΓùÅ Test suite failed to run
+
+    PrismaClientInitializationError: 
+    Invalid `prisma.user.findMany()` invocation:
+
+
+    Can't reach database server at `localhost:5432`
+
+    Please make sure your database server is running at `localhost:5432`.
+
+      at $n.handleRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:7615)
+      at $n.handleAndLogRequestError 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6623)
+      at $n.request 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:121:6307)
+      at l 
+(../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/runtime/library.js:130:9633)
+      at Object.<anonymous> (test/C:/Users/MY PC/Desktop/Projects/SkillBridge/apps/api/test/bookings.test.ts:96:22)
+
+A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due 
+to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure 
+that .unref() was called on them.
+Test Suites: 4 failed, 4 total
+Tests:       17 failed, 17 total
+Snapshots:   0 total
+Time:        20.819 s
+Ran all test suites matching users.
+Force exiting Jest: Have you considered using `--detectOpenHandles` to detect async operations that kept running after 
+all tests finished?
