@@ -2,6 +2,7 @@
   "name": "@skillbridge/api",
   "version": "1.0.0",
   "scripts": {
+    "start": "node dist/server.js",
     "dev": "ts-node-dev src/server.ts",
     "build": "tsc",
     "lint": "eslint src --ext .ts",

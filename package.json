@@ -8,7 +8,7 @@
   "packageManager": "pnpm@9.0.0",
   "scripts": {
     "dev": "pnpm --parallel --filter \"./apps/*\" dev",
-    "build": "pnpm install --no-frozen-lockfile && pnpm -r build && cd apps/api && npx prisma generate --schema=prisma/schema.prisma",
+    "build": "pnpm install --no-frozen-lockfile && pnpm -r build && cd apps/api && npx prisma generate --schema=prisma/schema.prisma && pnpm --filter api build",
     "db:studio": "pnpm --filter @skillbridge/api db:studio",
     "db:seed": "pnpm --filter @skillbridge/api seed"
   },
