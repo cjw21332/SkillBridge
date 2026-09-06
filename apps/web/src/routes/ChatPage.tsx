@@ -292,7 +292,7 @@ export const ChatPage: React.FC = () => {
               <>
                 {/* Chat Header */}
                 <div className="shrink-0 relative z-10 p-3 px-4 bg-white dark:bg-[#151D2F] border-b border-[var(--color-border)] flex justify-between items-center shadow-sm"
-                  style={{ backdropFilter: "blur(8px)", webkitBackdropFilter: "blur(8px)" }}>
+                  style={{ backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
                   <div className="flex items-center gap-3">
                     <button onClick={() => setActiveMatchId(null)} className="md:hidden p-1.5 hover:bg-slate-100 rounded-lg">
                       <ArrowLeft className="w-5 h-5" />
