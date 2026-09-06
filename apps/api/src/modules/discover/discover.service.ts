@@ -40,7 +40,7 @@ export const discoverService = {
     });
 
     const scored = candidates
-      .map((candidate) => ({
+      .map((candidate: any) => ({
         id: candidate.id,
         name: candidate.name,
         bio: candidate.bio,
@@ -51,7 +51,7 @@ export const discoverService = {
         learnSkills: candidate.learnSkills,
         matchScore: computeMatchScore(user, candidate),
       }))
-      .sort((a, b) => b.matchScore - a.matchScore)
+      .sort((a: any, b: any) => b.matchScore - a.matchScore)
       .slice(0, 20);
 
     await setCache(cacheKey, scored, 60); // 1-minute TTL for recommendation candidates

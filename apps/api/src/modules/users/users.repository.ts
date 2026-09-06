@@ -1,4 +1,5 @@
-import { PrismaClient, SkillType } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
+const SkillType = { TEACH: "TEACH" as const, LEARN: "LEARN" as const };
 const prisma = new PrismaClient();
 
 const skillInclude = {

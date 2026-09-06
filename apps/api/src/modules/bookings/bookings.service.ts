@@ -31,8 +31,8 @@ export const bookingsService = {
     const userTeachSkills = await bookingsRepository.findUserTeachSkills(userId);
     const otherUserTeachSkills = await bookingsRepository.findUserTeachSkills(otherUserId);
 
-    const isUserTeaching = userTeachSkills.some((s) => s.skillId === data.skillId);
-    const isOtherTeaching = otherUserTeachSkills.some((s) => s.skillId === data.skillId);
+    const isUserTeaching = userTeachSkills.some((s: any) => s.skillId === data.skillId);
+    const isOtherTeaching = otherUserTeachSkills.some((s: any) => s.skillId === data.skillId);
 
     if (!isUserTeaching && !isOtherTeaching) {
       throw { statusCode: 400, message: "The chosen skill is not taught by either participant" };

@@ -74,7 +74,7 @@ export const postsService = {
 
     // 3. If user has few friends or friend posts, include recent community posts
     if (posts.length < 5) {
-      const existingIds = new Set(posts.map((p) => p.id));
+      const existingIds = new Set(posts.map((p: any) => p.id));
       const communityPosts = await prisma.post.findMany({
         where: { id: { notIn: Array.from(existingIds) } },
         include: postInclude,
